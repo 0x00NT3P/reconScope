@@ -1099,6 +1099,7 @@ async function processFiles(files) {
   });
 
   toast(`Loaded ${added} new URLs from ${results.length} file(s)`);
+  scheduleSave();
   renderAll();
 }
 
@@ -1532,6 +1533,7 @@ function closeNote() {
 function saveNote() {
   if (activeNoteIdx === null) return;
   allUrls[activeNoteIdx].note = document.getElementById('note-text').value;
+  scheduleSave();
   closeNote();
   renderAll();
 }
@@ -1549,6 +1551,7 @@ function setUrlStatus(status) {
   allUrls[activeStatusIdx].status = status;
   document.getElementById('status-menu').classList.remove('visible');
   activeStatusIdx = null;
+  scheduleSave();
   renderAll();
 }
 
