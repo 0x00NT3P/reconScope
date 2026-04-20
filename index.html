@@ -1535,7 +1535,6 @@ function saveNote() {
   allUrls[activeNoteIdx].note = document.getElementById('note-text').value;
   closeNote();
   scheduleSave();
-  renderAll();
 }
 
 // Status menu
@@ -1552,7 +1551,6 @@ function setUrlStatus(status) {
   document.getElementById('status-menu').classList.remove('visible');
   activeStatusIdx = null;
   scheduleSave();
-  renderAll();
 }
 
 function positionPopup(el, e) {
