@@ -1005,6 +1005,7 @@ let currentView = 'tree';
 let activeNoteIdx = null;
 let activeStatusIdx = null;
 let sourceFiles = [];
+let currentSelectedStatus = null;
 
 // Project persistence
 let projectFileHandle = null;
@@ -1539,6 +1540,7 @@ function saveNote() {
 
 // Status menu
 function openStatusMenu(idx, e) {
+  currentSelectedStatus = e.target;
   e.stopPropagation();
   activeStatusIdx = idx;
   const menu = document.getElementById('status-menu');
@@ -1547,10 +1549,14 @@ function openStatusMenu(idx, e) {
 }
 function setUrlStatus(status) {
   if (activeStatusIdx === null) return;
+  currentSelectedStatus.classList.remove(STATUS_CLASSES[allUrls[activeStatusIdx].status]);
+  currentSelectedStatus.classList.add(STATUS_CLASSES[status]);
   allUrls[activeStatusIdx].status = status;
   document.getElementById('status-menu').classList.remove('visible');
   activeStatusIdx = null;
   scheduleSave();
+  currentSelectedStatus.textContent;
+  currentSelectedStatus = null;
 }
 
 function positionPopup(el, e) {
