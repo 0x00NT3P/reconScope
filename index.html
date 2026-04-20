@@ -1746,7 +1746,7 @@ function loadProjectData(data, name) {
   sourceFiles = data.sourceFiles || [];
   lastSaved = data.updated || null;
   renderAll();
-  const ts = lastSaved ? new Date(lastSaved).toLocaleTimeString() : '—';
+  const ts = lastSaved ? new Date(lastSaved).toLocaleString() : '—';
   setProjUI('active', name, `Last saved: ${ts}`);
   document.getElementById('btn-save-now').style.display = '';
 }
