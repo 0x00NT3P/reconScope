@@ -1762,7 +1762,7 @@ async function saveProject(manual = false) {
     await writable.write(projectPayload());
     await writable.close();
     lastSaved = new Date().toISOString();
-    const ts = new Date(lastSaved).toLocaleTimeString();
+    const ts = new Date(lastSaved).toLocaleString();
     setProjUI('active', projectName, `Saved at ${ts}`);
     if (manual) toast('Project saved');
   } catch (e) {
